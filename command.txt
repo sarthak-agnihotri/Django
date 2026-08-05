@@ -1,2 +1,3 @@
 .\myenv\Scripts\Activate.ps1-> for Activate 
 python -m venv myenv -> for building the virtual env
+pip install django
