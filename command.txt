@@ -1,3 +1,4 @@
 .\myenv\Scripts\Activate.ps1-> for Activate 
 python -m venv myenv -> for building the virtual env
 pip install django
+django-admin --version ->check the version
