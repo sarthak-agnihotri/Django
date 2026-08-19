@@ -11,4 +11,12 @@ def web(request):
     name="Django"
     return HttpResponse(f"This is a {name} Web Framework")
 
+def result(request):
+    a=int(request.GET['num1'])
+    if(a>=80):
+        return HttpResponse("Excellent")
+    else:
+        return HttpResponse("Good")
+    
+
 # Create your views here.
