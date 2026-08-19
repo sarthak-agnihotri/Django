@@ -6,3 +6,5 @@ django-admin startproject myproject->create project
 
 cd myproject
 py manage.py startapp myproj
+
+project is a structure and app is a design to build something
