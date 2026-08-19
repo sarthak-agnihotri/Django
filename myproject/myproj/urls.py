@@ -5,4 +5,5 @@ urlpatterns=[
     path('hello/',views.hello),
     path('home/',views.home),
     path('about/',views.about),
+    path('web/',views.web),
 ]
