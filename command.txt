@@ -8,3 +8,4 @@ cd myproject
 py manage.py startapp myproj
 
 project is a structure and app is a design to build something
+view is a function that takes an http request and returns a http response.
