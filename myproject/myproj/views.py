@@ -43,5 +43,7 @@ def movie_finder(request,movie_name):
         description=movies[movie_name]
         return HttpResponse(f"<h1 style='color:green'>{movie_name}</h1>"+description)
     else:
-        return HttpResponse("<h1 style='color:red'>Movie not found</h1>")
+        return HttpResponse(f"<h1 style='color:red'>Movie not found</h1>")
+
+
 # Create your views here.
