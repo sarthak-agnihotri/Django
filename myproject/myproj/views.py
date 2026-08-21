@@ -18,5 +18,8 @@ def result(request):
     else:
         return HttpResponse("Good")
     
+def greet(request,name):
+    return HttpResponse(f"Hello {name} Welcome to Django")
+
 
 # Create your views here.

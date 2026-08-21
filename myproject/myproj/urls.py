@@ -7,4 +7,5 @@ urlpatterns=[
     path('about/',views.about),
     path('web/',views.web),
     path('result/',views.result),
+    path('greet/<str:name>/',views.greet),
 ]
