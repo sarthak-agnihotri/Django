@@ -45,5 +45,13 @@ def movie_finder(request,movie_name):
     else:
         return HttpResponse(f"<h1 style='color:red'>Movie not found</h1>")
 
+def recipe(request):
+    food=request.GET.get("food")
+    return HttpResponse(f"recipe available for food {food}")
 
+def add(request):
+    value1=request.GET.get("num1")
+    value2=request.GET.get("num2")
+    result=int(value1)+int(value2)
+    return HttpResponse(f"Addition of {value1} and {value2} is {result}")
 # Create your views here.
