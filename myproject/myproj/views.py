@@ -21,5 +21,27 @@ def result(request):
 def greet(request,name):
     return HttpResponse(f"Hello {name} Welcome to Django")
 
+def menu(request,dish):
+    items={
+        'sugar':"cost is 20rs/kg",
+        'salt':"cost is 30rs/kg",
+        'rice':"cost is 40rs/kg",
+    }
+    if dish in items:
+        description=items[dish]
+        return HttpResponse(f"<h1>{dish}</h1>"+description)
+    else:
+        return HttpResponse("Item not found")
 
+def movie_finder(request,movie_name):
+    movies={
+        'inception':"A mind-bending thriller directed by Christopher Nolan.",
+        'the godfather':"A classic crime film directed by Francis Ford Coppola.",
+        'pulp fiction':"A cult classic directed by Quentin Tarantino.",
+    }
+    if movie_name in movies:
+        description=movies[movie_name]
+        return HttpResponse(f"<h1 style='color:green'>{movie_name}</h1>"+description)
+    else:
+        return HttpResponse("<h1 style='color:red'>Movie not found</h1>")
 # Create your views here.
