@@ -61,5 +61,6 @@ def userprofile(request,username):
 def productId(request,product_id):
     return HttpResponse(f"Product ID is : {product_id}")
 
-
+def handler404(request,exception):
+    return HttpResponse("<h1>404 Error Page Not Found</h1>")
 # Create your views here.
