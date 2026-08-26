@@ -62,5 +62,5 @@ def productId(request,product_id):
     return HttpResponse(f"Product ID is : {product_id}")
 
 def handler404(request,exception):
-    return HttpResponse("<h1>404 Error Page Not Found</h1>")
+    return HttpResponse(f"<h1 style='color:red'>404 Error Page Not Found {exception}</h1>")
 # Create your views here.
