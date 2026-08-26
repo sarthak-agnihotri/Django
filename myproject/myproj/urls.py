@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns=[
@@ -13,4 +13,6 @@ urlpatterns=[
     path('movie_finder/<str:movie_name>/',views.movie_finder),
     path('recipe/',views.recipe),
     path('add/',views.add),
+    re_path(r'^userprofile/(?P<username>[a-zA-Z]+)/$',views.userprofile)
+
 ]

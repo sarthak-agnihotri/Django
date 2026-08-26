@@ -54,4 +54,7 @@ def add(request):
     value2=request.GET.get("num2")
     result=int(value1)+int(value2)
     return HttpResponse(f"Addition of {value1} and {value2} is {result}")
+
+def userprofile(request,username):
+    return HttpResponse(f"user profile is : {username}")
 # Create your views here.
