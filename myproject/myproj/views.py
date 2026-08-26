@@ -60,4 +60,6 @@ def userprofile(request,username):
 
 def productId(request,product_id):
     return HttpResponse(f"Product ID is : {product_id}")
+
+
 # Create your views here.
