@@ -13,6 +13,6 @@ urlpatterns=[
     path('movie_finder/<str:movie_name>/',views.movie_finder),
     path('recipe/',views.recipe),
     path('add/',views.add),
-    re_path(r'^userprofile/(?P<username>[a-zA-Z]+)/$',views.userprofile)
+    re_path(r'^userprofile/(?P<username>[\d]{2,4}+)/$',views.userprofile)
 
 ]
