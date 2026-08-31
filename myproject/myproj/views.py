@@ -60,6 +60,13 @@ def add(request):
     result=int(value1)+int(value2)
     return HttpResponse(f"Addition of {value1} and {value2} is {result}")
 
+def student1(request):
+    name=request.GET.get("name")
+    age=request.GET.get("age")
+    return HttpResponse(f"<h1>Student Details are</h1>"
+                        f"<p>Student Name is : {name}</p>"
+                        f"<p>Student Age is : {age}</p>")
+
 def userprofile(request,username):
     return HttpResponse(f"user profile is : {username}")
 
@@ -68,4 +75,12 @@ def productId(request,product_id):
 
 def handler404(request,exception):
     return HttpResponse(f"<h1 style='color:red'>404 Error Page Not Found {exception}</h1>")
+
+def test(request):
+    if request.method=="GET":
+        return HttpResponse("This is a GET request")
+    elif request.method=="POST":
+        return HttpResponse("This is a POST request")
+    else:
+        return HttpResponse("This is a different request method")
 # Create your views here.

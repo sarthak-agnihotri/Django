@@ -14,8 +14,10 @@ urlpatterns=[
     path('movie_finder/<str:movie_name>/',views.movie_finder),
     path('recipe/',views.recipe),
     path('add/',views.add),
-    # re_path(r'^userprofile/(?P<username>[\d]{2,4}+)/?$',views.userprofile),
-    # re_path(r'^product/(?P<product_id>[\w]+)/$',views.productId),
+    path('student1/',views.student1),
+    path('test/',views.test),
+    re_path(r'^userprofile/(?P<username>[\d]{2,4}+)/?$',views.userprofile),
+    re_path(r'^product/(?P<product_id>[\w]+)/$',views.productId),
     
 
 ]
