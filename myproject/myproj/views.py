@@ -21,6 +21,11 @@ def result(request):
 def greet(request,name):
     return HttpResponse(f"Hello {name} Welcome to Django")
 
+def student(request,id,name):
+    return HttpResponse (f"<h1>Student Details</h1>"
+                        f"<p>Student ID is : {id}</p>"
+                        f"<p>Student Name is : {name}</p>")
+
 def menu(request,dish):
     items={
         'sugar':"cost is 20rs/kg",
