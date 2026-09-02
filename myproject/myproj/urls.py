@@ -18,6 +18,7 @@ urlpatterns=[
     path('test/',views.test),
     re_path(r'^userprofile/(?P<username>[\d]{2,4}+)/?$',views.userprofile),
     re_path(r'^product/(?P<product_id>[\w]+)/$',views.productId),
+    path('login/',views.login),
     
 
 ]

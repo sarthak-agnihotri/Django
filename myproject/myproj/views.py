@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def hello(request):
     return HttpResponse("Hello World")
@@ -83,4 +84,21 @@ def test(request):
         return HttpResponse("This is a POST request")
     else:
         return HttpResponse("This is a different request method")
+
+@csrf_exempt
+def login(request):
+    if request.method=="GET":
+        return HttpResponse("""
+        <h1>LOGIN</h1>
+        <form method="POST">
+        <label>Username:</label>
+        <input type='text' name='username' placeholder='Enter Username'>
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter Password">
+        <button type="submit">Login</button>
+        </form>
+""")
+    elif request.method=="POST":
+        username=request.POST.get("username")
+        return HttpResponse(f"<h1>Welcome, {username}</h1>")
 # Create your views here.
