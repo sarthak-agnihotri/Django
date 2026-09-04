@@ -2,103 +2,108 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-def hello(request):
-    return HttpResponse("Hello World")
-def home(request):
-    return HttpResponse("<h1>Welcome to Home Page</h1>")
-def about(request):
-    return HttpResponse("<h1>Welcome to About Page</h1>")
-def web(request):
-    name="Django"
-    return HttpResponse(f"This is a {name} Web Framework")
+# def hello(request):
+#     return HttpResponse("Hello World")
+# def home(request):
+#     return HttpResponse("<h1>Welcome to Home Page</h1>")
+# def about(request):
+#     return HttpResponse("<h1>Welcome to About Page</h1>")
+# def web(request):
+#     name="Django"
+#     return HttpResponse(f"This is a {name} Web Framework")
 
-def result(request):
-    a=int(request.GET['num1'])
-    if(a>=80):
-        return HttpResponse("Excellent")
-    else:
-        return HttpResponse("Good")
+# def result(request):
+#     a=int(request.GET['num1'])
+#     if(a>=80):
+#         return HttpResponse("Excellent")
+#     else:
+#         return HttpResponse("Good")
     
-def greet(request,name):
-    return HttpResponse(f"Hello {name} Welcome to Django")
+# def greet(request,name):
+#     return HttpResponse(f"Hello {name} Welcome to Django")
 
-def student(request,id,name):
-    return HttpResponse (f"<h1>Student Details</h1>"
-                        f"<p>Student ID is : {id}</p>"
-                        f"<p>Student Name is : {name}</p>")
+# def student(request,id,name):
+#     return HttpResponse (f"<h1>Student Details</h1>"
+#                         f"<p>Student ID is : {id}</p>"
+#                         f"<p>Student Name is : {name}</p>")
 
-def menu(request,dish):
-    items={
-        'sugar':"cost is 20rs/kg",
-        'salt':"cost is 30rs/kg",
-        'rice':"cost is 40rs/kg",
-    }
-    if dish in items:
-        description=items[dish]
-        return HttpResponse(f"<h1>{dish}</h1>"+description)
-    else:
-        return HttpResponse("Item not found")
+# def menu(request,dish):
+#     items={
+#         'sugar':"cost is 20rs/kg",
+#         'salt':"cost is 30rs/kg",
+#         'rice':"cost is 40rs/kg",
+#     }
+#     if dish in items:
+#         description=items[dish]
+#         return HttpResponse(f"<h1>{dish}</h1>"+description)
+#     else:
+#         return HttpResponse("Item not found")
 
-def movie_finder(request,movie_name):
-    movies={
-        'inception':"A mind-bending thriller directed by Christopher Nolan.",
-        'the godfather':"A classic crime film directed by Francis Ford Coppola.",
-        'pulp fiction':"A cult classic directed by Quentin Tarantino.",
-    }
-    if movie_name in movies:
-        description=movies[movie_name]
-        return HttpResponse(f"<h1 style='color:green'>{movie_name}</h1>"+description)
-    else:
-        return HttpResponse(f"<h1 style='color:red'>Movie not found</h1>")
+# def movie_finder(request,movie_name):
+#     movies={
+#         'inception':"A mind-bending thriller directed by Christopher Nolan.",
+#         'the godfather':"A classic crime film directed by Francis Ford Coppola.",
+#         'pulp fiction':"A cult classic directed by Quentin Tarantino.",
+#     }
+#     if movie_name in movies:
+#         description=movies[movie_name]
+#         return HttpResponse(f"<h1 style='color:green'>{movie_name}</h1>"+description)
+#     else:
+#         return HttpResponse(f"<h1 style='color:red'>Movie not found</h1>")
 
-def recipe(request):
-    food=request.GET.get("food")
-    return HttpResponse(f"recipe available for food {food}")
+# def recipe(request):
+#     food=request.GET.get("food")
+#     return HttpResponse(f"recipe available for food {food}")
 
-def add(request):
-    value1=request.GET.get("num1")
-    value2=request.GET.get("num2")
-    result=int(value1)+int(value2)
-    return HttpResponse(f"Addition of {value1} and {value2} is {result}")
+# def add(request):
+#     value1=request.GET.get("num1")
+#     value2=request.GET.get("num2")
+#     result=int(value1)+int(value2)
+#     return HttpResponse(f"Addition of {value1} and {value2} is {result}")
 
-def student1(request):
-    name=request.GET.get("name")
-    age=request.GET.get("age")
-    return HttpResponse(f"<h1>Student Details are</h1>"
-                        f"<p>Student Name is : {name}</p>"
-                        f"<p>Student Age is : {age}</p>")
+# def student1(request):
+#     name=request.GET.get("name")
+#     age=request.GET.get("age")
+#     return HttpResponse(f"<h1>Student Details are</h1>"
+#                         f"<p>Student Name is : {name}</p>"
+#                         f"<p>Student Age is : {age}</p>")
 
-def userprofile(request,username):
-    return HttpResponse(f"user profile is : {username}")
+# def userprofile(request,username):
+#     return HttpResponse(f"user profile is : {username}")
 
-def productId(request,product_id):
-    return HttpResponse(f"Product ID is : {product_id}")
+# def productId(request,product_id):
+#     return HttpResponse(f"Product ID is : {product_id}")
 
-def handler404(request,exception):
-    return HttpResponse(f"<h1 style='color:red'>404 Error Page Not Found {exception}</h1>")
+# def handler404(request,exception):
+#     return HttpResponse(f"<h1 style='color:red'>404 Error Page Not Found {exception}</h1>")
 
-def test(request):
-    if request.method=="GET":
-        return HttpResponse("This is a GET request")
-    elif request.method=="POST":
-        return HttpResponse("This is a POST request")
-    else:
-        return HttpResponse("This is a different request method")
+# def test(request):
+#     if request.method=="GET":
+#         return HttpResponse("This is a GET request")
+#     elif request.method=="POST":
+#         return HttpResponse("This is a POST request")
+#     else:
+#         return HttpResponse("This is a different request method")
 
-@csrf_exempt
-def login(request):
-    if request.method=="GET":
-        return HttpResponse("""
-        <h1>LOGIN</h1>
-        <form method="POST">
-        <label>Username:</label>
-        <input type='text' name='username' placeholder='Enter Username'>
-        <label>Password:</label>
-        <input type="password" name="password" placeholder="Enter Password">
-        <button type="submit">Login</button>
-        </form>
-""")
-    elif request.method=="POST":
-        username=request.POST.get("username")
-        return HttpResponse(f"<h1>Welcome, {username}</h1>")
+# @csrf_exempt
+# def login(request):
+#     if request.method=="GET":
+#         return HttpResponse("""
+#         <h1>LOGIN</h1>
+#         <form method="POST">
+#         <label>Username:</label>
+#         <input type='text' name='username' placeholder='Enter Username'>
+#         <label>Password:</label>
+#         <input type="password" name="password" placeholder="Enter Password">
+#         <button type="submit">Login</button>
+#         </form>
+# """)
+#     elif request.method=="POST":
+#         username=request.POST.get("username")
+#         return HttpResponse(f"<h1>Welcome, {username}</h1>")
+
+def home(request):
+    return render(request,"home.html")
+def about(request):
+    return render(request,"about.html")
 # Create your views here.

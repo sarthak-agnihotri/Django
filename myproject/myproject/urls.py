@@ -22,4 +22,4 @@ urlpatterns = [
     path('',include ('myproj.urls')),
 
 ]
-handler404 = 'myproj.views.handler404'
+# handler404 = 'myproj.views.handler404'
