@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from django.views.decorators.csrf import csrf_exempt
 
 # def hello(request):
@@ -102,8 +102,21 @@ from django.views.decorators.csrf import csrf_exempt
 #         username=request.POST.get("username")
 #         return HttpResponse(f"<h1>Welcome, {username}</h1>")
 
-def home(request):
-    return render(request,"home.html")
-def about(request):
-    return render(request,"about.html")
+# def home(request):
+#     return render(request,"home.html")
+# def about(request):
+#     return render(request,"about.html")
+# def content(request):
+#     return render(request,"content.html")
+
+# def blog(request, blog_slug):
+#     return HttpResponse(f"<h1>Welcome to Blog Application</h1>")
+
+# def result(request,id):
+#     students= [101]
+#     if int(id) not in students:
+#         raise Http404("Student not found")
+#     return HttpResponse(f"<h1>Student Details</h1><p>Student ID is : {id}</p>")
+
+
 # Create your views here.

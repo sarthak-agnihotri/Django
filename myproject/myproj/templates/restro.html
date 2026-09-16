@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restro</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align: center;">Welcome to Nirvana</h1>
+        <nav display:flex, flex-direction: column;style="text-align: center;">
+            <ul>
+                <li><a href="home/">Home</a></li>
+                <li><a href="about/">About</a></li>
+                <li><a href="menu/">Menu</a></li>
+            </ul>
+        </nav>
+        <button style="color:maroon;">View Our Menu</button>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <p>&copy; 2026 Nirvana. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -20,7 +20,11 @@ urlpatterns=[
     # re_path(r'^userprofile/(?P<username>[\d]{2,4}+)/?$',views.userprofile),
     # re_path(r'^product/(?P<product_id>[\w]+)/$',views.productId),
     # path('login/',views.login),
-    path('',views.home),
-    path('about/',views.about),
+    # path('',views.home),
+    # path('about/',views.about),
+    # path('content/',views.content),
 
+    # path('blog/<slug:blog_slug>/',views.blog),
+    # re_path(r'^result/(?P<id>\d+)/$',views.result)
+    
 ]
