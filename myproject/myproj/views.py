@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
-from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
+from .forms import MyForm
 
 # def hello(request):
 #     return HttpResponse("Hello World")
@@ -118,5 +119,48 @@ from django.views.decorators.csrf import csrf_exempt
 #         raise Http404("Student not found")
 #     return HttpResponse(f"<h1>Student Details</h1><p>Student ID is : {id}</p>")
 
+def simpleform(request):
+    csrf_token=get_token(request)
+    if request.method=="POST":
+        textbox1=request.POST.get("textbox1")
+        textbox2=request.POST.get("textbox2")
+        return HttpResponse(f"the values are {textbox1} and {textbox2}")
+    else:
+        return HttpResponse(f"""
+        <form method="POST">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">
+            <label for="textbox1">Textbox 1:</label>
+            <input type="text" id="textbox1" name="textbox1"><br><br>
+            <label for="textbox2">Textbox 2:</label>
+            <input type="text" id="textbox2" name="textbox2"><br><br>
+            <button type="submit">Submit</button>
+            </form>
+        """)
 
+def templateform(request):
+    if request.method=="POST":
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        password=request.POST.get("password")
+        if name and email and password:
+            return HttpResponse("form submitted successfully")
+        return render(request,"form.html")
+    
+#myform widgets
+def my_form_view(request):
+    if request.method == 'POST':
+        form = MyForm(request.POST)
+        if form.is_valid():
+            # Easy variables
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+
+            print(name, email, password)  # demo only — don't log passwords in real apps
+
+            return render(request, 'success.html', {'name': name})
+    else:
+        form = MyForm()
+
+    return render(request, 'my_form.html', {'form': form})
 # Create your views here.

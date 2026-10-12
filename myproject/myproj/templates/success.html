@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .card {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9fff9;
+        }
+        a { color: #234870; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>✅ Success!</h1>
+        <p>Hello, <strong>{{ name }}</strong>! Your form was received.</p>
+        <a href="{% url 'my_form' %}">← Submit another</a>
+    </div>
+</body>
+</html>
