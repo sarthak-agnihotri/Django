@@ -145,6 +145,22 @@ def templateform(request):
         if name and email and password:
             return HttpResponse("form submitted successfully")
         return render(request,"form.html")
+
+def register(request):
+    if request.method=='POST':
+        form=StudentForm(request.POST)
+        if form.is_valid():
+            name=form.cleaned_data['name']
+            email=form.cleaned_data['email']
+            age=form.cleaned_data['age']
+            course=form.cleaned_data['course']
+            return redirect('success')
+    else:
+        form=StudentForm()
+    return render(request,'register.html',{'form':form})
+
+def success(request):
+    return render(request,'success.html')
     
 #myform widgets
 def my_form_view(request):

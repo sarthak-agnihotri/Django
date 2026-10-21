@@ -29,4 +29,6 @@ urlpatterns=[
     path('simpleform/',views.simpleform),
     path('templateform/',views.templateform),
     path('myform/',views.my_form_view, name='my_form'),
+    path('register/',views.register,name='register'),
+    path('success/',views.success,name='success'),
 ]
