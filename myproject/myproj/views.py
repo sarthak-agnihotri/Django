@@ -119,64 +119,136 @@ from .forms import MyForm
 #         raise Http404("Student not found")
 #     return HttpResponse(f"<h1>Student Details</h1><p>Student ID is : {id}</p>")
 
-def simpleform(request):
-    csrf_token=get_token(request)
-    if request.method=="POST":
-        textbox1=request.POST.get("textbox1")
-        textbox2=request.POST.get("textbox2")
-        return HttpResponse(f"the values are {textbox1} and {textbox2}")
-    else:
-        return HttpResponse(f"""
-        <form method="POST">
-            <input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">
-            <label for="textbox1">Textbox 1:</label>
-            <input type="text" id="textbox1" name="textbox1"><br><br>
-            <label for="textbox2">Textbox 2:</label>
-            <input type="text" id="textbox2" name="textbox2"><br><br>
-            <button type="submit">Submit</button>
-            </form>
-        """)
+# def simpleform(request):
+#     csrf_token=get_token(request)
+#     if request.method=="POST":
+#         textbox1=request.POST.get("textbox1")
+#         textbox2=request.POST.get("textbox2")
+#         return HttpResponse(f"the values are {textbox1} and {textbox2}")
+#     else:
+#         return HttpResponse(f"""
+#         <form method="POST">
+#             <input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">
+#             <label for="textbox1">Textbox 1:</label>
+#             <input type="text" id="textbox1" name="textbox1"><br><br>
+#             <label for="textbox2">Textbox 2:</label>
+#             <input type="text" id="textbox2" name="textbox2"><br><br>
+#             <button type="submit">Submit</button>
+#             </form>
+#         """)
 
-def templateform(request):
-    if request.method=="POST":
-        name=request.POST.get("name")
-        email=request.POST.get("email")
-        password=request.POST.get("password")
-        if name and email and password:
-            return HttpResponse("form submitted successfully")
-        return render(request,"form.html")
+# def templateform(request):
+#     if request.method=="POST":
+#         name=request.POST.get("name")
+#         email=request.POST.get("email")
+#         password=request.POST.get("password")
+#         if name and email and password:
+#             return HttpResponse("form submitted successfully")
+#         return render(request,"form.html")
 
-def register(request):
-    if request.method=='POST':
-        form=StudentForm(request.POST)
-        if form.is_valid():
-            name=form.cleaned_data['name']
-            email=form.cleaned_data['email']
-            age=form.cleaned_data['age']
-            course=form.cleaned_data['course']
-            return redirect('success')
-    else:
-        form=StudentForm()
-    return render(request,'register.html',{'form':form})
+# def register(request):
+#     if request.method=='POST':
+#         form=StudentForm(request.POST)
+#         if form.is_valid():
+#             name=form.cleaned_data['name']
+#             email=form.cleaned_data['email']
+#             age=form.cleaned_data['age']
+#             course=form.cleaned_data['course']
+#             return redirect('success')
+#     else:
+#         form=StudentForm()
+#     return render(request,'register.html',{'form':form})
 
-def success(request):
-    return render(request,'success.html')
+# def success(request):
+#     return render(request,'success.html')
     
-#myform widgets
-def my_form_view(request):
-    if request.method == 'POST':
-        form = MyForm(request.POST)
-        if form.is_valid():
-            # Easy variables
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+# #myform widgets
+# def my_form_view(request):
+#     if request.method == 'POST':
+#         form = MyForm(request.POST)
+#         if form.is_valid():
+#             # Easy variables
+#             name = form.cleaned_data['name']
+#             email = form.cleaned_data['email']
+#             password = form.cleaned_data['password']
 
-            print(name, email, password)  # demo only — don't log passwords in real apps
+#             print(name, email, password)  # demo only — don't log passwords in real apps
 
-            return render(request, 'success.html', {'name': name})
-    else:
-        form = MyForm()
+#             return render(request, 'success.html', {'name': name})
+#     else:
+#         form = MyForm()
 
-    return render(request, 'my_form.html', {'form': form})
+#     return render(request, 'my_form.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from .models import Student
+# # Display all students
+# def student_list(request):
+#     students = Student.objects.all()
+#     return render(request, 'student_list.html', {
+#         'students': students
+#     })
+
+
+# # Add a new student
+# def add_student(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
+#         roll_number = request.POST.get('roll_number')
+#         course = request.POST.get('course')
+#         semester = request.POST.get('semester')
+#         cgpa = request.POST.get('cgpa')
+
+#         Student.objects.create(
+#             name=name,
+#             email=email,
+#             password=password,
+#             roll_number=roll_number,
+#             course=course,
+#             semester=semester,
+#             cgpa=cgpa
+#         )
+
+#         return redirect('student_list')
+
+#     return render(request, 'add_student.html')
+    
 # Create your views here.

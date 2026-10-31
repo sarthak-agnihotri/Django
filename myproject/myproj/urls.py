@@ -26,9 +26,9 @@ urlpatterns=[
 
     # path('blog/<slug:blog_slug>/',views.blog),
     # re_path(r'^result/(?P<id>\d+)/$',views.result)
-    path('simpleform/',views.simpleform),
-    path('templateform/',views.templateform),
-    path('myform/',views.my_form_view, name='my_form'),
-    path('register/',views.register,name='register'),
-    path('success/',views.success,name='success'),
+    # path('simpleform/',views.simpleform),
+    # path('templateform/',views.templateform),
+    # path('myform/',views.my_form_view, name='my_form'),
+    # path('register/',views.register,name='register'),
+    # path('success/',views.success,name='success'),
 ]
