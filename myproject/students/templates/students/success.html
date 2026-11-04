@@ -18,7 +18,7 @@
 
 <p>Your message has been submitted successfully.</p> -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,5 +29,27 @@
     <h2>Feedback Submitted Successfully!</h2>
 
     <p>Thank you for your feedback.</p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Success</title>
+</head>
+<body>
+    <h2>Validation Successful</h2>
+    {%if messages%}
+    {%for message in messages%}
+    <p>{{message}}</p>
+    {%endfor%}
+    {%endif%}
+    
+    <p>Name: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Age: {{ age }}</p>
+    
 </body>
 </html>

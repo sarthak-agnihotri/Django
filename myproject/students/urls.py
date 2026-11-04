@@ -7,6 +7,8 @@ urlpatterns=[
     # path('login/',views.login_view),
     # path('contact/',views.contact),
     # path('success/',views.success,name='success')
-    path('feedback/',views.feedback,name='feedback'),
+    # path('feedback/',views.feedback,name='feedback'),
+    # path('success/',views.success,name='success'),
+    path('validation/',views.validation,name='validation'),
     path('success/',views.success,name='success'),
 ]

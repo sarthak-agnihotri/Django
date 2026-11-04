@@ -3,7 +3,8 @@ from django.contrib import messages
 # from .forms import StudentForm
 # from .forms import LoginForm
 # from .forms import ContactForm
-from .forms import FeedbackForm
+# from .forms import FeedbackForm
+from .forms import ValidationForm
 
 # def register(request):
 #     form=StudentForm()
@@ -52,18 +53,41 @@ from .forms import FeedbackForm
 # def success(request):
 #     return render(request,"students/success.html")
 
-def feedback(request):
-    form=FeedbackForm()
+# def feedback(request):
+#     form=FeedbackForm()
+#     if request.method=="POST":
+#         form=FeedbackForm(request.POST)
+#         if form.is_valid():
+#             name=form.cleaned_data['name']
+#             email=form.cleaned_data['email']
+#             rating=form.cleaned_data['rating']
+#             feedback=form.cleaned_data['feedback']
+#             return redirect('success')
+#     else:
+#         return render(request,'students/feedback.html',{'form':form})
+# def success(request):
+#     return render(request,'students/success.html')
+
+def validation(request):
+    form=ValidationForm()
     if request.method=="POST":
-        form=FeedbackForm(request.POST)
+        form=ValidationForm(request.POST)
         if form.is_valid():
             name=form.cleaned_data['name']
             email=form.cleaned_data['email']
-            rating=form.cleaned_data['rating']
-            feedback=form.cleaned_data['feedback']
+            age=form.cleaned_data['age']
+            password=form.cleaned_data['password']
+            request.session['name'] = name
+            request.session['email'] = email
+            request.session['age'] = age
+            messages.success(request,"Validation successful!")
             return redirect('success')
     else:
-        return render(request,'students/feedback.html',{'form':form})
+        return render(request,'students/validation.html',{'form':form})
 def success(request):
-    return render(request,'students/success.html')
+    return render(request,'students/success.html',{
+        'name':request.session.get('name'),
+        'email':request.session.get('email'),
+        'age':request.session.get('age'),
+    })
 # Create your views here.
