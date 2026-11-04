@@ -31,4 +31,7 @@ urlpatterns=[
     # path('myform/',views.my_form_view, name='my_form'),
     # path('register/',views.register,name='register'),
     # path('success/',views.success,name='success'),
+    path ('set_cookie/',views.set_cookie,name='set_cookie'),
+    path ('get_cookie/',views.get_cookie,name='get_cookie'),
+    path ('delete_cookie/',views.delete_cookie,name='delete_cookie'),
 ]

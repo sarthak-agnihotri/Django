@@ -180,7 +180,22 @@ from .forms import MyForm
 
 #     return render(request, 'my_form.html', {'form': form})
 
+def set_cookie(request):
+    response=HttpResponse("Cookie Set")
+    response.set_cookie('name','John',max_age=30)
+    response.set_cookie('marks','90',max_age=30)
+    return response
 
+def get_cookie(response):
+    name=response.COOKIES.get('name')
+    marks=response.COOKIES.get('marks')
+    return HttpResponse(f"Name is : {name} and Marks is : {marks}")
+
+def delete_cookie(request):
+    response=HttpResponse("Cookie Deleted")
+    response.delete_cookie('name')
+    response.delete_cookie('marks')
+    return response
 
 
 
